@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.footer{
+    background-image: url(./images/footer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover
+}
+.button{
+      font-family: "DM Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: bold ;   
+}
+p{
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: bold ;   
+}
+body h2{
+      font-family: "Raleway", sans-serif;
+      font-optical-sizing: auto;
+      font-weight:500;
+      font-style:bold;
+    }
+
