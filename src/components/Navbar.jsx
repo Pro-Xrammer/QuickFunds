@@ -3,36 +3,46 @@ import Button from '../components/Button'
 import { TiThMenu } from "react-icons/ti";
 
 const Navbar = () => {
-    let arr=[
-        {name:"home"},
-        {name:"Services"},
-        {name:"How we work?"},
-        {name:"About Us"},
-        {name:"home"},
-]
-const [toggle,settoggle] = useState(false);
- function counter() {
-    settoggle(!toggle);
-    console.log(toggle);
-  }
+  const navItems = [
+    { name: "Home" },
+    { name: "Services" },
+    { name: "How we work?" },
+    { name: "About Us" }
+  ];
+
+  const [toggle, setToggle] = useState(false);
+
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
+
   return (
-    <div className='flex justify-between items-center height-[72px] py-[9px] px-[70px] md:flex-row flex-col '>
-        <div><h2 className='text-[30px]  md:flex-row flex-col pb-[12px]'>Quick<span className='text-[#50AC97]'>Funds</span></h2></div>
-        <div><ul className={` ${toggle ? "flex gap-[10px]  height-[28px] items-center md:flex-row flex-col ":" md:flex justify-between items-centergap-[20px]  hidden"}`} >
-        {
-        arr.map(({name})=>{
-            return <li  className='list-none '>{name}</li>
-        })
-        }
-        <div className=' '><Button text={"Contact Us"}/></div>
+    <nav className="w-full bg-white shadow-md px-6 py-4 flex items-center justify-between relative">
+      <div>
+        <h2 className="text-2xl font-bold">Quick<span className="text-[#50AC97]">Funds</span></h2>
+      </div>
 
-        </ul>
-        <div className=" md:hidden block absolute top-5 right-5 text-black" onClick={counter}>{toggle?"X ":<TiThMenu/>}</div>
-        </div>
-       
-    </div>
-    
-  )
-}
+      <ul className={`md:flex gap-6 items-center transition-all duration-300 ${
+        toggle ? "flex flex-col absolute top-16 right-6 bg-white rounded-lg p-4 shadow-lg" : "hidden md:flex"
+      }`}>
+        {navItems.map(({ name }, index) => (
+          <li key={index} className="list-none cursor-pointer hover:text-[#50AC97]">
+            {name}
+          </li>
+        ))}
+        <li>
+          <Button text={"Contact Us"} />
+        </li>
+      </ul>
 
-export default Navbar; 
+      <div
+        className="md:hidden text-2xl cursor-pointer"
+        onClick={handleToggle}
+      >
+        {toggle ? "✕" : <TiThMenu />}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
