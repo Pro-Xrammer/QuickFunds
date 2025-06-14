@@ -1,36 +1,22 @@
-import React from 'react'
 
-const Comp = ({heading,para,image,booloperater}) => {
-  return (
-    <div>
-        {booloperater?
-        (
-            <div className='gap-[4rem] mx-[158px]  flex justify-between my-[8rem] flex-wrap'>
-        <div className=''><img src={image} alt="image" /></div> 
-        <div className='w-[546px]  '><h2 className='h-[56px] text-[33px] font-bold text-[#2a3436] py-6 mb-[4rem]  '>{heading}</h2>
-        <p className='h-[115px] font-[18px] text-[#424545]  '>{para}</p></div>
-    </div>
-        ):
-        (
-            <div className='gap-[4.6rem] mx-[158px]  flex justify-between  my-[5rem] flex-wrap  '>
-    <div className='w-[546px] gap-4  '>
-        <h2 className='h-[56px] text-[33px] font-bold text-[#2a3436] py-6 mb-[4rem]'>{heading}</h2>
-        <p className='h-[115px] font-[18px] text-[#424545]  '>{para}</p>
+const Comp = ({ heading, para, image, booloperater }) => {
+    return (
+        <div
+            className={`flex flex-col ${booloperater ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                } items-center justify-between gap-12 px-6 md:px-20 py-16 animate-fadeIn`}
+        >
+            {/* Image Section */}
+            <div className="w-full lg:w-1/2 animate-slideIn">
+                <img src={image} alt="section visual" className="w-full max-w-md mx-auto lg:mx-0" />
+            </div>
+
+            {/* Text Section */}
+            <div className="w-full lg:w-1/2 text-center lg:text-left animate-fadeUp">
+                <h2 className="text-[#2a3436] text-3xl md:text-4xl font-bold mb-6">{heading}</h2>
+                <p className="text-[#424545] text-base md:text-lg leading-relaxed">{para}</p>
+            </div>
         </div>
-        <div className=''><img src={image} alt="image" /></div>
-    </div>
-        )
-        }
-
-
-
-
-
-
-
-
-    </div>
-  )
-}
+    );
+};
 
 export default Comp;
